@@ -1,3 +1,8 @@
+/* =========================
+   Combined + Corrected style.css
+   Includes hero-section rules that index.html expects
+   ========================= */
+
 /* ========== GLOBAL STYLING ========== */
 * {
     margin: 0;
@@ -6,46 +11,46 @@
     font-family: "Poppins", sans-serif;
 }
 
+:root{
+    --bg-a: #0a0f24;
+    --bg-b: #121b3c;
+    --accent-a: #58e0ff;
+    --accent-b: #af7bff;
+    --neon: #7ddfff;
+    --muted: #cfd9ff;
+}
+
 body {
-    background: linear-gradient(135deg, #0a0f24, #121b3c);
+    background: linear-gradient(135deg, var(--bg-a), var(--bg-b));
     color: #e8eeff;
-}
-
-/* Container setup */
-.page-container {
-    padding: 120px 10%;
-}
-
-.page-title {
-    font-size: 40px;
-    font-weight: 700;
-    color: #7ddfff;
-    text-align: center;
-    margin-bottom: 40px;
+    min-height: 100vh;
 }
 
 /* ========== NAVBAR ========== */
-header {
+header, .navbar {
     width: 100%;
     position: fixed;
     top: 0;
+    left: 0;
     background: rgba(10, 15, 35, 0.85);
     backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
     z-index: 1000;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 18px 10%;
+    padding: 18px 8%;
     align-items: center;
+    gap: 20px;
 }
 
 .logo {
-    font-size: 26px;
-    font-weight: 700;
-    background: linear-gradient(to right, #58e0ff, #af7bff);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    background: linear-gradient(to right, var(--accent-a), var(--accent-b));
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -53,110 +58,184 @@ header {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 28px;
+    align-items: center;
 }
 
 .nav-links a {
     color: #cdd9ff;
     text-decoration: none;
     font-size: 15px;
-    transition: 0.3s ease;
+    transition: 0.25s ease;
+    padding: 6px 8px;
+    border-radius: 6px;
 }
 
 .nav-links a:hover,
-.nav-links .active {
-    color: #7ddfff;
-    text-shadow: 0 0 10px #7ddfff;
+.nav-links a.active {
+    color: var(--neon);
+    text-shadow: 0 0 10px rgba(125,220,255,0.12);
+    background: rgba(255,255,255,0.02);
 }
 
-/* ========== HERO (HOME PAGE) ========== */
-.hero {
-    padding: 160px 10% 120px;
+/* ========== HERO (two variants supported) ========== */
+/* old class .hero kept for compatibility */
+.hero, .hero-section {
+    padding-top: 110px; /* allow for fixed navbar */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
 }
 
-.hero-text {
-    max-width: 48%;
+/* Modern full-screen hero (index.html uses .hero-section) */
+.hero-section {
+    padding: 140px 8% 100px;
+    min-height: calc(100vh - 110px);
+    background: linear-gradient(135deg, rgba(20,30,48,0.85), rgba(36,59,85,0.95));
 }
 
-.hero-text h1 {
+/* container left content */
+.hero-content, .hero-text {
+    max-width: 56%;
+    color: #e6f0ff;
+}
+
+/* Big heading */
+.hero-content h1, .hero-text h1 {
     font-size: 48px;
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: 800;
+    line-height: 1.12;
+    margin-bottom: 12px;
 }
 
-.highlight {
-    color: #7ddfff;
+.hero-content h1 span {
+    color: var(--neon);
 }
 
+/* tagline */
 .tagline {
-    margin-top: 15px;
-    font-size: 20px;
-    color: #b4c7ff;
+    margin-top: 6px;
+    font-size: 18px;
+    color: #b8d4ff;
+    margin-bottom: 18px;
 }
 
-/* Info text */
-.info {
-    margin-top: 8px;
+/* details under heading */
+.hero-details p, .info {
+    margin: 6px 0;
     color: #cfd9ff;
+    font-size: 15px;
 }
 
-/* Hero image with glow */
-.hero-image img {
-    width: 350px;
-    height: 350px;
-    border-radius: 25px;
+/* CTA button */
+.hero-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 14px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.primary-btn {
+    background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+    color: #002233;
+    box-shadow: 0 6px 18px rgba(90,180,255,0.08);
+}
+
+.primary-btn:hover { transform: translateY(-3px); }
+
+.secondary-btn {
+    background: rgba(255,255,255,0.06);
+    color: #e7f2ff;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.secondary-btn:hover { transform: translateY(-3px); }
+
+/* HERO IMAGE (index.html expects hero-image > img) */
+.hero-image, .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 40%;
+}
+
+/* circle profile - adjusted smaller and glowing */
+.hero-image img,
+.profile-img {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 25px rgba(125, 220, 255, 0.4), 0 10px 30px rgba(0,0,0,0.4);
-    border: 3px solid rgba(255,255,255,0.2);
-    transition: 0.4s ease;
+    border: 5px solid rgba(0, 212, 255, 0.85);
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.18), 0 6px 24px rgba(0,0,0,0.45);
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
-/* Hover zoom */
-.hero-image img:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 30px #7ddfff;
+/* fallback if your HTML used rounded-rectangle */
+.hero-image img.rounded,
+.hero-image img {
+    border-radius: 18px; /* older version fallback */
+}
+
+/* if you prefer circular, ensure class is not rounded */
+.hero-image img.circle,
+.profile-img.circle { border-radius: 50%; }
+
+/* hover */
+.hero-image img:hover,
+.profile-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 18px 60px rgba(0, 212, 255, 0.35);
 }
 
 /* ========== CARD STYLE ========== */
 .card, .project-card, .skill-card {
-    background: rgba(255,255,255,0.05);
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    padding: 26px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    transition: 0.35s ease;
+    transition: 0.28s ease;
 }
 
 .card:hover, .skill-card:hover, .project-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
 }
 
 .card h2, .project-card h2, .skill-card h3 {
-    color: #7ddfff;
+    color: var(--neon);
     margin-bottom: 10px;
 }
 
 /* ========== SKILLS GRID ========== */
 .skill-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
 }
 
 /* ========== PROJECTS CARDS ========== */
 .project-card p {
-    color: #d4e0ff;
+    color: #d4e6ff;
     margin-bottom: 10px;
 }
 
 /* ========== CONTACT FORM ========== */
 .contact-row {
     display: flex;
-    gap: 50px;
+    gap: 28px;
+    flex-wrap: wrap;
 }
 
 .contact-form input,
@@ -165,60 +244,83 @@ header {
     margin-bottom: 12px;
     padding: 12px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
     color: white;
     font-size: 14px;
 }
 
 .contact-form button {
     padding: 12px 20px;
-    width: 150px;
+    width: 170px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(to right, #58e0ff, #af7bff);
-    color: #fff;
-    font-weight: 600;
+    background: linear-gradient(to right, var(--accent-a), var(--accent-b));
+    color: #001d26;
+    font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .contact-form button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(125, 220, 255, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(90,180,255,0.12);
 }
 
-/* ========== FOOTER ========== */
+/* ========== Footer ========== */
 footer {
     text-align: center;
-    padding: 25px 0;
+    padding: 40px 0 80px;
     color: #9fb2d9;
     font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.02);
+    margin-top: 24px;
 }
 
-/* ================= SWOT GRID FIX ================= */
+/* ========== SWOT GRID FIX ================= */
 .swot-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    margin-top: 25px;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .swot-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 18px;
+    border-radius: 10px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .swot-item h3 {
-    color: #7ddfff;
-    margin-bottom: 10px;
-    font-size: 20px;
+    color: var(--neon);
+    margin-bottom: 8px;
+    font-size: 18px;
 }
 
 .swot-item p {
     font-size: 15px;
     color: #d6e7ff;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 980px) {
+    .navbar { padding: 14px 6%; }
+    .hero-section, .hero {
+        flex-direction: column-reverse;
+        padding: 90px 6% 60px;
+        align-items: center;
+        gap: 22px;
+    }
+    .hero-content, .hero-text { max-width: 100%; text-align: left; }
+    .hero-image, .hero-right { max-width: 100%; }
+    .hero-image img, .profile-img { width: 200px; height: 200px; }
+    .big-title { font-size: 36px; }
+}
+
+@media (max-width: 520px) {
+    .nav-links { display: none; }
+    .hero-section { padding-top: 80px; }
+    .hero-image img, .profile-img { width: 160px; height: 160px; }
 }

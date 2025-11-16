@@ -1,0 +1,224 @@
+/* ========== GLOBAL STYLING ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0f24, #121b3c);
+    color: #e8eeff;
+}
+
+/* Container setup */
+.page-container {
+    padding: 120px 10%;
+}
+
+.page-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #7ddfff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ========== NAVBAR ========== */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(10, 15, 35, 0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 10%;
+    align-items: center;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(to right, #58e0ff, #af7bff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #cdd9ff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    color: #7ddfff;
+    text-shadow: 0 0 10px #7ddfff;
+}
+
+/* ========== HERO (HOME PAGE) ========== */
+.hero {
+    padding: 160px 10% 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 48%;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #7ddfff;
+}
+
+.tagline {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #b4c7ff;
+}
+
+/* Info text */
+.info {
+    margin-top: 8px;
+    color: #cfd9ff;
+}
+
+/* Hero image with glow */
+.hero-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 25px;
+    object-fit: cover;
+    box-shadow: 0 0 25px rgba(125, 220, 255, 0.4), 0 10px 30px rgba(0,0,0,0.4);
+    border: 3px solid rgba(255,255,255,0.2);
+    transition: 0.4s ease;
+}
+
+/* Hover zoom */
+.hero-image img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 30px #7ddfff;
+}
+
+/* ========== CARD STYLE ========== */
+.card, .project-card, .skill-card {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: 0.35s ease;
+}
+
+.card:hover, .skill-card:hover, .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.card h2, .project-card h2, .skill-card h3 {
+    color: #7ddfff;
+    margin-bottom: 10px;
+}
+
+/* ========== SKILLS GRID ========== */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* ========== PROJECTS CARDS ========== */
+.project-card p {
+    color: #d4e0ff;
+    margin-bottom: 10px;
+}
+
+/* ========== CONTACT FORM ========== */
+.contact-row {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 14px;
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to right, #58e0ff, #af7bff);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(125, 220, 255, 0.7);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    padding: 25px 0;
+    color: #9fb2d9;
+    font-size: 14px;
+}
+
+/* ================= SWOT GRID FIX ================= */
+.swot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.swot-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.swot-item h3 {
+    color: #7ddfff;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.swot-item p {
+    font-size: 15px;
+    color: #d6e7ff;
+}

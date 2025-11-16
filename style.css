@@ -1,9 +1,8 @@
-/* =========================
-   Combined + Corrected style.css
-   Includes hero-section rules that index.html expects
-   ========================= */
+/* FIX NAVBAR OVERLAP FOR ALL PAGES */
+.page-container {
+    padding-top: 140px; /* enough space for fixed navbar */
+}
 
-/* ========== GLOBAL STYLING ========== */
 * {
     margin: 0;
     padding: 0;
